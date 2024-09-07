@@ -1,0 +1,173 @@
+{
+  "main": {
+    "id": "062e7e4fe272759a",
+    "type": "split",
+    "children": [
+      {
+        "id": "3b460b9518b987af",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4b7fdb496cf9fefa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Planning/Sosh Roadmap.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "05b3e32cd2d59610",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b372d3e01cad01fe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Planning/Sosh Roadmap.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ea671d87fb07374a",
+    "type": "split",
+    "children": [
+      {
+        "id": "c17b20533044e2eb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc1acadea78c827f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "446542f034dbdc49",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "86ba21d55ed2ce07",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ff21661858ca0fc7",
+    "type": "split",
+    "children": [
+      {
+        "id": "d1708ac273f1779c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "74078a30964aefc3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Planning/Sosh Roadmap.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ccb81ba1223115ab",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Planning/Sosh Roadmap.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e5c5e383b25a3a95",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "fd6f4e1b513cd4fe",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Planning/Sosh Roadmap.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "4b7fdb496cf9fefa",
+  "lastOpenFiles": [
+    "Untitled 1.md",
+    "Planning",
+    "Planning/Sosh Roadmap.md"
+  ]
+}
