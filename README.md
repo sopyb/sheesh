@@ -36,7 +36,7 @@ BAM! Like a segmentation fault while running your test suite, inspiration strike
 - [ ] Prompt customization
 
 ### Advanced Functionality (Or "It ain't so bad anymore")
-- [ ] Tokenizer
+- [ ] Tokenizer, Parser, and Executor
 - [ ] Proper Environment Table tools (because I actually have ideas how to improve it, bet you'd love `console.table` in your shell)
 - [ ] Script support
 - [ ] Execution control (if, do while, while)
