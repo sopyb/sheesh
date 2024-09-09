@@ -25,7 +25,11 @@ pub enum OperatorTokenKind {
     Equal,
     NotEqual,
     Less,
+    DoubleLess,
+    TripleLess,
     Greater,
+    DoubleGreater,
+    TripleGreater,
     LessEqual,
     GreaterEqual,
     Assign,
@@ -59,6 +63,7 @@ pub enum TokenKind {
     Operator(OperatorTokenKind),
     Punctuation(PunctuationTokenKind),
     Literal(LiteralTokenKind),
+    Comment,
     EOF,
 }
 
