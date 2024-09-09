@@ -1,3 +1,4 @@
+#[derive(Copy, Clone)]
 pub enum KeywordTokenKind {
     Let,
     Const,
@@ -12,6 +13,7 @@ pub enum KeywordTokenKind {
     Continue,
 }
 
+#[derive(Copy, Clone)]
 pub enum OperatorTokenKind {
     Plus,
     Minus,
@@ -40,6 +42,7 @@ pub enum OperatorTokenKind {
     PercentAssign,
 }
 
+#[derive(Copy, Clone)]
 pub enum PunctuationTokenKind {
     LParen,
     RParen,
@@ -52,12 +55,14 @@ pub enum PunctuationTokenKind {
     Dot,
 }
 
+#[derive(Copy, Clone)]
 pub enum LiteralTokenKind {
     Number,
     String,
     Identifier,
 }
 
+#[derive(Copy, Clone)]
 pub enum TokenKind {
     Keyword(KeywordTokenKind),
     Operator(OperatorTokenKind),
@@ -67,6 +72,7 @@ pub enum TokenKind {
     EOF,
 }
 
+#[derive(Clone)]
 pub struct Token {
     pub kind: TokenKind,
     pub value: String,
