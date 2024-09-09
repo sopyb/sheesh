@@ -1,3 +1,6 @@
+mod interpreter;
+mod utils;
+
 use std::io::Write;
 use term_size;
 
