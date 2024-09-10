@@ -26,6 +26,14 @@ impl<'a> Iterator for Tokenizer<'a> {
 }
 
 impl<'a> Tokenizer<'a> {
+    pub fn new(input: &'a str) -> Self {
+        Tokenizer {
+            input,
+            position: 0,
+            peeked: None,
+        }
+    }
+
     fn skip_whitespace(&mut self) {
         while let Some(c) = self.peek() {
             if c.is_whitespace() {
@@ -54,7 +62,7 @@ impl<'a> Tokenizer<'a> {
             "while" => TokenKind::Keyword(KeywordTokenKind::While),
             "do" => TokenKind::Keyword(KeywordTokenKind::Do),
             "for" => TokenKind::Keyword(KeywordTokenKind::For),
-            "function" => TokenKind::Keyword(KeywordTokenKind::Function),
+            "fun" => TokenKind::Keyword(KeywordTokenKind::Function),
             "return" => TokenKind::Keyword(KeywordTokenKind::Return),
             "break" => TokenKind::Keyword(KeywordTokenKind::Break),
             "continue" => TokenKind::Keyword(KeywordTokenKind::Continue),
@@ -68,13 +76,19 @@ impl<'a> Tokenizer<'a> {
 
     fn read_number(&mut self) -> Token {
         let start = self.position;
+        let mut has_decimal = false;
+
         while let Some(c) = self.peek() {
             if c.is_numeric() {
+                self.advance();
+            } else if c == '.' && !has_decimal {
+                has_decimal = true;
                 self.advance();
             } else {
                 break;
             }
         }
+
         let value = &self.input[start..self.position];
         Token {
             kind: TokenKind::Literal(LiteralTokenKind::Number),
@@ -102,6 +116,10 @@ impl<'a> Tokenizer<'a> {
     fn read_operator(&mut self) -> Token {
         let start = self.position;
         let start_c = self.peek().unwrap();
+
+        // advance past the first character
+        self.advance();
+
         while let Some(c) = self.peek() {
             match c {
                 '<' | '>' | '/' => {
@@ -118,6 +136,9 @@ impl<'a> Tokenizer<'a> {
                 }
                 '=' => {
                     self.advance();
+                    if start_c == '=' {
+                        break;
+                    }
                     break;
                 }
                 _ => {
@@ -125,7 +146,7 @@ impl<'a> Tokenizer<'a> {
                 }
             }
         }
-        let value = &self.input[start..self.position];
+        let mut value = &self.input[start..self.position];
         let kind = match value {
             "+" => TokenKind::Operator(OperatorTokenKind::Plus),
             "-" => TokenKind::Operator(OperatorTokenKind::Minus),
@@ -146,7 +167,6 @@ impl<'a> Tokenizer<'a> {
             ">>>" => TokenKind::Operator(OperatorTokenKind::TripleGreater),
             "<=" => TokenKind::Operator(OperatorTokenKind::LessEqual),
             ">=" => TokenKind::Operator(OperatorTokenKind::GreaterEqual),
-            ":=" => TokenKind::Operator(OperatorTokenKind::Assign),
             "+=" => TokenKind::Operator(OperatorTokenKind::PlusAssign),
             "-=" => TokenKind::Operator(OperatorTokenKind::MinusAssign),
             "*=" => TokenKind::Operator(OperatorTokenKind::StarAssign),
@@ -155,6 +175,19 @@ impl<'a> Tokenizer<'a> {
             "//" => TokenKind::Comment,
             _ => unreachable!(),
         };
+
+        if kind == TokenKind::Comment {
+            // get everything until the end of the line
+            while let Some(c) = self.peek() {
+                if c == '\n' {
+                    break;
+                }
+                self.advance();
+            }
+
+            value = &self.input[start..self.position];
+        }
+
         Token {
             kind,
             value: value.to_string(),
