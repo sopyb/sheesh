@@ -54,7 +54,8 @@ impl<'a> Tokenizer<'a> {
             }
         }
         let value = &self.input[start..self.position];
-        let kind = match value {
+        let lowercase_value = value.to_lowercase();
+        let kind = match lowercase_value.as_str() {
             "let" => TokenKind::Keyword(KeywordTokenKind::Let),
             "const" => TokenKind::Keyword(KeywordTokenKind::Const),
             "if" => TokenKind::Keyword(KeywordTokenKind::If),
@@ -86,6 +87,24 @@ impl<'a> Tokenizer<'a> {
                 self.advance();
             } else {
                 break;
+            }
+        }
+
+        if let Some(c) = self.peek() {
+            if c == 'e' || c =='E' {
+                self.advance(); // Skip 'e'
+                if let Some(c) = self.peek() {
+                    if c == '+' || c == '-' {
+                        self.advance(); // Skip the sign
+                    }
+                }
+                while let Some(c) = self.peek() {
+                    if c.is_numeric() {
+                        self.advance();
+                    } else {
+                        break;
+                    }
+                }
             }
         }
 
