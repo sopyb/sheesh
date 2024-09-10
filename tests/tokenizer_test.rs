@@ -9,7 +9,7 @@ mod tests {
         let input = r#"
             let x = 42;
             const y = 3.14;
-            if (x > 10) {
+            if (x == 10) {
                 y += x;
             } else {
                 y -= 1;
@@ -33,20 +33,20 @@ mod tests {
         let expected_tokens = vec![
             Token::new(TokenKind::Keyword(KeywordTokenKind::Let), "let"),
             Token::new(TokenKind::Literal(LiteralTokenKind::Identifier), "x"),
-            Token::new(TokenKind::Operator(OperatorTokenKind::Equal), "="),
+            Token::new(TokenKind::Operator(OperatorTokenKind::Assign), "="),
             Token::new(TokenKind::Literal(LiteralTokenKind::Number), "42"),
             Token::new(TokenKind::Punctuation(PunctuationTokenKind::Semicolon), ";"),
 
             Token::new(TokenKind::Keyword(KeywordTokenKind::Const), "const"),
             Token::new(TokenKind::Literal(LiteralTokenKind::Identifier), "y"),
-            Token::new(TokenKind::Operator(OperatorTokenKind::Equal), "="),
+            Token::new(TokenKind::Operator(OperatorTokenKind::Assign), "="),
             Token::new(TokenKind::Literal(LiteralTokenKind::Number), "3.14"),
             Token::new(TokenKind::Punctuation(PunctuationTokenKind::Semicolon), ";"),
 
             Token::new(TokenKind::Keyword(KeywordTokenKind::If), "if"),
             Token::new(TokenKind::Punctuation(PunctuationTokenKind::LParen), "("),
             Token::new(TokenKind::Literal(LiteralTokenKind::Identifier), "x"),
-            Token::new(TokenKind::Operator(OperatorTokenKind::Greater), ">"),
+            Token::new(TokenKind::Operator(OperatorTokenKind::Equal), "=="),
             Token::new(TokenKind::Literal(LiteralTokenKind::Number), "10"),
             Token::new(TokenKind::Punctuation(PunctuationTokenKind::RParen), ")"),
             Token::new(TokenKind::Punctuation(PunctuationTokenKind::LBrace), "{"),
@@ -69,7 +69,7 @@ mod tests {
 
             Token::new(TokenKind::Keyword(KeywordTokenKind::Let), "let"),
             Token::new(TokenKind::Literal(LiteralTokenKind::Identifier), "my_string"),
-            Token::new(TokenKind::Operator(OperatorTokenKind::Equal), "="),
+            Token::new(TokenKind::Operator(OperatorTokenKind::Assign), "="),
             Token::new(TokenKind::Literal(LiteralTokenKind::String), "Hello, world!"),
             Token::new(TokenKind::Punctuation(PunctuationTokenKind::Semicolon), ";"),
 

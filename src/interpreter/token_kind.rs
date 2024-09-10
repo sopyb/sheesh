@@ -34,6 +34,7 @@ pub enum OperatorTokenKind {
     TripleGreater,
     LessEqual,
     GreaterEqual,
+    Assign,
     PlusAssign,
     MinusAssign,
     StarAssign,
