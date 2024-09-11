@@ -5,17 +5,17 @@ use term_size;
 
 
 fn main() {
-    println!("Welcome to the sosh!");
+    println!("Welcome to the sheesh!");
     let mut message = "Banner for information".to_string();
     loop {
         // get terminal width
         let (width, _) = term_size::dimensions().unwrap_or((80, 24));
 
         // write a prompt
-        print!("sosh $ \n\x1b[1m\x1b[37m\x1b[100m {}{}\x1b[0m", message, " ".repeat(width as usize - message.len() - 1));
+        print!("sheesh $ \n\x1b[1m\x1b[37m\x1b[100m {}{}\x1b[0m", message, " ".repeat(width as usize - message.len() - 1));
 
-        // move the cursor up a line and 6 characters to the right
-        print!("\x1b[1A\x1b[1000D\x1b[7C");
+        // move the cursor up a line and 9 characters to the right
+        print!("\x1b[1A\x1b[1000D\x1b[9C");
         std::io::stdout().flush().expect("TODO: panic message");
 
         // read a line from the user

@@ -1,4 +1,4 @@
-# sosh (Sopy Shell)
+# sheesh (Sopy's Holistic Enhanced Exoerimental SHell)
 
 > [!NOTE]  
 > If anyone actually uses this I promise to make a README that's not just bad jokes and self-deprecation.

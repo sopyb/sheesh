@@ -1,4 +1,4 @@
-use sosh::interpreter::*;
+use sheesh::interpreter::*;
 
 #[cfg(test)]
 mod tests {
