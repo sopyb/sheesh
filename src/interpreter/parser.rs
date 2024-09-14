@@ -451,7 +451,7 @@ impl Parser {
         Err(format!("Unexpected token: {:?}", self.peek()))
     }
 
-    // Helper methods - TODO: Use IteratorExt trait
+    // Helper methods
 
     fn match_token(&mut self, kinds: &[TokenKind]) -> bool {
         for &kind in kinds {
