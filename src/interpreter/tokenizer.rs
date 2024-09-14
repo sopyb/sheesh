@@ -91,7 +91,7 @@ impl<'a> Tokenizer<'a> {
         }
 
         if let Some(c) = self.peek() {
-            if c == 'e' || c =='E' {
+            if c == 'e' || c == 'E' {
                 self.advance(); // Skip 'e'
                 if let Some(c) = self.peek() {
                     if c == '+' || c == '-' {

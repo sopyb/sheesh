@@ -77,9 +77,15 @@ mod tests {
             Token::new(TokenKind::Punctuation(PunctuationTokenKind::Semicolon), ";"),
             // let my_string = "Hello, world!";
             Token::new(TokenKind::Keyword(KeywordTokenKind::Let), "let"),
-            Token::new(TokenKind::Literal(LiteralTokenKind::Identifier), "my_string"),
+            Token::new(
+                TokenKind::Literal(LiteralTokenKind::Identifier),
+                "my_string",
+            ),
             Token::new(TokenKind::Operator(OperatorTokenKind::Assign), "="),
-            Token::new(TokenKind::Literal(LiteralTokenKind::String), "Hello, world!"),
+            Token::new(
+                TokenKind::Literal(LiteralTokenKind::String),
+                "Hello, world!",
+            ),
             Token::new(TokenKind::Punctuation(PunctuationTokenKind::Semicolon), ";"),
             // while (x < 100) {
             Token::new(TokenKind::Keyword(KeywordTokenKind::While), "while"),
@@ -122,8 +128,16 @@ mod tests {
         assert_eq!(tokens.len(), expected_tokens.len());
 
         for (i, token) in tokens.iter().enumerate() {
-            assert_eq!(token.kind, expected_tokens[i].kind, "Token kind mismatch at index {}", i);
-            assert_eq!(token.value, expected_tokens[i].value, "Token value mismatch at index {}", i);
+            assert_eq!(
+                token.kind, expected_tokens[i].kind,
+                "Token kind mismatch at index {}",
+                i
+            );
+            assert_eq!(
+                token.value, expected_tokens[i].value,
+                "Token value mismatch at index {}",
+                i
+            );
         }
     }
 }

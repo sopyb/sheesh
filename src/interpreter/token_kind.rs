@@ -72,7 +72,6 @@ pub enum TokenKind {
     EOF,
 }
 
-
 #[derive(Clone, Debug, PartialEq)]
 pub struct Token {
     pub kind: TokenKind,

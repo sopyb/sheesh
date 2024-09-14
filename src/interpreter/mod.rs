@@ -1,7 +1,7 @@
-pub mod tokenizer;
-pub mod token_kind;
 pub mod ast;
+pub mod token_kind;
+pub mod tokenizer;
 
-pub use tokenizer::*;
-pub use token_kind::*;
 pub use ast::*;
+pub use token_kind::*;
+pub use tokenizer::*;

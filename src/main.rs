@@ -1,8 +1,5 @@
-
-
 use std::io::Write;
 use term_size;
-
 
 fn main() {
     println!("Welcome to the sheesh!");
@@ -12,7 +9,11 @@ fn main() {
         let (width, _) = term_size::dimensions().unwrap_or((80, 24));
 
         // write a prompt
-        print!("sheesh $ \n\x1b[1m\x1b[37m\x1b[100m {}{}\x1b[0m", message, " ".repeat(width as usize - message.len() - 1));
+        print!(
+            "sheesh $ \n\x1b[1m\x1b[37m\x1b[100m {}{}\x1b[0m",
+            message,
+            " ".repeat(width as usize - message.len() - 1)
+        );
 
         // move the cursor up a line and 9 characters to the right
         print!("\x1b[1A\x1b[1000D\x1b[9C");
@@ -20,7 +21,9 @@ fn main() {
 
         // read a line from the user
         let mut input = String::new();
-        std::io::stdin().read_line(&mut input).expect("TODO: panic message");
+        std::io::stdin()
+            .read_line(&mut input)
+            .expect("TODO: panic message");
 
         // move the cursor down a line and to the beginning of the line
         print!("\x1b[1B\x1b[1000D");
