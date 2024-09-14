@@ -1,5 +1,6 @@
 #[derive(Clone, Debug, PartialEq)]
 pub enum Expr {
+    Assign(Box<Expr>, Box<Expr>),
     Number(f64),
     String(String),
     Identifier(String),
